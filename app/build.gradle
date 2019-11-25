@@ -37,6 +37,7 @@ dependencies {
     def lifecycle_version = "2.1.0"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     //Room database
     def room_version = "2.2.2"
@@ -67,7 +68,6 @@ dependencies {
 
     //material Design
     implementation 'com.google.android.material:material:1.0.0'
-
 
 
 }
