@@ -2,7 +2,6 @@ package com.ao.androidchallengejob.viewModel;
 
 import android.util.Log;
 
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -28,20 +27,19 @@ public class HomeViweModel extends ViewModel {
 		FootballDataClint.getServiceApi().repositoryDataCall(key).enqueue(new Callback<RepositoryData>() {
 			@Override
 			public void onResponse(Call<RepositoryData> call, Response<RepositoryData> response) {
-
 				if (response.body() != null && response.isSuccessful()){
 					teamsItem.setValue(response.body().getTeams());
 				}
 			}
 
-
 			@Override
 			public void onFailure(Call<RepositoryData> call, Throwable t) {
-				Log.e("ee",t.getLocalizedMessage());
-				message.setValue(t.getLocalizedMessage());
-
 
 			}
 		});
+
+
+
+
 	}
 }

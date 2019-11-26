@@ -36,14 +36,16 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 
 
 	//private Context context;
-	protected List<TeamsItem> list;
+	public List<TeamsItem> list;
 	private Context context;
-	public OnItemClickListenerView onItemClickListener;
 
 	public FootballAdapter(List<TeamsItem> list, Context context) {
 		this.list = list;
 		this.context = context;
 	}
+
+	public OnItemClickListenerView onItemClickListener;
+
 
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,7 +55,7 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 	}
 
 
-	@SuppressLint("CheckResult")
+ 	@SuppressLint("CheckResult")
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
 
@@ -65,12 +67,12 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 		holder.nameColors.setText(item.getClubColors());
 		holder.teamWebsite.setText(item.getWebsite());
 
-		holder.saveBtn.setOnClickListener(new View.OnClickListener() {
+		/*holder.saveBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, ""+item, Toast.LENGTH_SHORT).show();
 			}
-		});
+		});*/
 
 		//Image
 		RequestOptions requestOptions = new RequestOptions();
@@ -109,21 +111,6 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 					}
 				});
 
-		/*holder.textView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(v.getContext(), ""+position, Toast.LENGTH_SHORT).show();
-			}
-		});*/
-		/*
-		if (onItemClickListener != null) {
-			holder.textView.setOnClickListener(v -> {
-
-				onItemClickListener.onItemClick(position);
-			});
-		}
-
-*/
 	}
 
 
