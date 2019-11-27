@@ -1,25 +1,25 @@
 package com.ao.androidchallengejob.ui;
 
-   import android.annotation.SuppressLint;
-   import android.content.Intent;
-   import android.os.Bundle;
-   import android.view.View;
-   import android.webkit.WebView;
-   import android.webkit.WebViewClient;
- import android.widget.ImageView;
- import android.widget.TextView;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
- import com.ao.androidchallengejob.R;
- import com.ao.androidchallengejob.utils.Utils;
- import com.bumptech.glide.Glide;
- import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
- import com.bumptech.glide.request.RequestOptions;
- import com.google.android.material.appbar.AppBarLayout;
- import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.ao.androidchallengejob.R;
+import com.ao.androidchallengejob.utils.Utils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class DetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
 	private TextView title_T, venue, nameColor, shortName, appbar_title, appbar_subtitle;
@@ -33,12 +33,10 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
 	private AppBarLayout appBarLayout;
 	private boolean isHideToolbarView = false;
 
- 	@Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
-
-
 
 
 		toolbar = findViewById(R.id.toolbar);
@@ -53,17 +51,14 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
 		appBarLayout.addOnOffsetChangedListener(this);
 
 
-
 		initFind();
 
 		getIntentView();
 
 
-
-
-
 	}
-	private void initFind(){
+
+	private void initFind() {
 		title_T = findViewById(R.id.titleTop);
 		venue = findViewById(R.id.nameVenue);
 		nameColor = findViewById(R.id.clubColor);
@@ -73,14 +68,15 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
 
 		appbar_title = findViewById(R.id.title_on_appbar);
 
-		appbar_subtitle =findViewById(R.id.subtitle_on_appbar);
+		appbar_subtitle = findViewById(R.id.subtitle_on_appbar);
 
 
 	}
-	@SuppressLint("CheckResult")
-	private void getIntentView(){
 
-		Intent intent= getIntent();
+	@SuppressLint("CheckResult")
+	private void getIntentView() {
+
+		Intent intent = getIntent();
 
 
 		i_title = intent.getStringExtra("teamName");
@@ -98,7 +94,6 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
 				.apply(requestOptions)
 				.transition(DrawableTransitionOptions.withCrossFade())
 				.into(show_image);
-
 
 
 		title_T.setText(i_title);

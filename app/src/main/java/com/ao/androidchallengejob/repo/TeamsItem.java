@@ -1,9 +1,15 @@
 package com.ao.androidchallengejob.repo;
 
+ import androidx.annotation.Nullable;
+ import androidx.room.Entity;
+ import androidx.room.Ignore;
+ import androidx.room.PrimaryKey;
  import com.google.gson.annotations.SerializedName;
 
+ @Entity
  public class TeamsItem{
 
+ 	@Ignore
 	@SerializedName("area")
 	private Area area;
 
@@ -37,16 +43,22 @@ package com.ao.androidchallengejob.repo;
 	@SerializedName("name")
 	private String name;
 
+	@PrimaryKey(autoGenerate = true)
+	@Nullable
 	@SerializedName("id")
 	private int id;
 
 	@SerializedName("shortName")
 	private String shortName;
 
+	@Ignore
 	@SerializedName("email")
 	private Object email;
 
-	public void setArea(Area area){
+	 public TeamsItem() {
+	 }
+
+	 public void setArea(Area area){
 		this.area = area;
 	}
 
