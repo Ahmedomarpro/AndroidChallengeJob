@@ -21,7 +21,7 @@
             android:background="?android:attr/selectableItemBackground">
 
             <ImageView
-                android:id="@+id/img_Color"
+                android:id="@+id/img_Color_favourite"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:scaleType="centerCrop"
@@ -32,13 +32,13 @@
                 android:id="@+id/shadow_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:layout_alignBottom="@id/img_Color"
+                android:layout_alignBottom="@id/img_Color_favourite"
                 android:src="@drawable/bottom_shadow"
 
                 tools:ignore="ContentDescription" />
 
             <ProgressBar
-                android:id="@+id/prograss_load_photo"
+                android:id="@+id/prograss_load_photo_F"
                 style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,10 +46,10 @@
 
 
             <TextView
-                android:id="@+id/TeamName"
+                android:id="@+id/TeamName_favour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img_Color"
+                android:layout_below="@id/img_Color_favourite"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="16dp"
@@ -61,10 +61,10 @@
 
 
             <TextView
-                android:id="@+id/TeamWebsite"
+                android:id="@+id/TeamWebsite_favourite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TeamName"
+                android:layout_below="@id/TeamName_favour"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="16dp"
@@ -73,10 +73,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/TheirVenue"
+                android:id="@+id/TheirVenue_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TeamWebsite"
+                android:layout_below="@id/TeamWebsite_favourite"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="4dp"
@@ -91,10 +91,10 @@
 
 
             <TextView
-                android:id="@+id/TeamPlayers"
+                android:id="@+id/TeamPlayers_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TheirVenue"
+                android:layout_below="@id/TheirVenue_favourite"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="4dp"
@@ -108,10 +108,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/Colors"
+                android:id="@+id/Colors_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/TeamPlayers"
+                android:layout_below="@id/TeamPlayers_favourite"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="10dp"
@@ -124,17 +124,6 @@
                 android:textColor="@color/colorTextTitle"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/saveBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Colors"
-                android:layout_marginTop="2dp"
-                android:drawablePadding="5dp"
-                  android:maxLines="1"
-                android:background="@drawable/ic_action_favourite"
-                  android:textColor="@color/colorTextTitle"
-                  />
 
 
 

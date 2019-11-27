@@ -31,7 +31,7 @@ public abstract class MyDataBase extends RoomDatabase {
 		myDataBase = Room.databaseBuilder(context, MyDataBase.class,
 				NAME_DADABASE)
 				.fallbackToDestructiveMigration()
-				//.allowMainThreadQueries()
+				.allowMainThreadQueries()
 				.build();
 
 

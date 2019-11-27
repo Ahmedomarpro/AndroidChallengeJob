@@ -1,18 +1,17 @@
 package com.ao.androidchallengejob.ui.AdapterView;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.ao.androidchallengejob.R;
 import com.ao.androidchallengejob.repo.TeamsItem;
@@ -28,40 +27,38 @@ import com.bumptech.glide.request.target.Target;
 
 import java.util.List;
 
-public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHolder> {
+public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.ViewHolder> {
 
+	private static final String TAG = FavouriteAdapter.class.getSimpleName();
 
-	//private Context context;
-	public List<TeamsItem> list;
 	private Context context;
-
-	public FootballAdapter(List<TeamsItem> list, Context context) {
-		this.list = list;
-		this.context = context;
-	}
-
+	protected List<TeamsItem> items;
 	public OnItemClickListenerView onItemClickListener;
 
 
+	public FavouriteAdapter(Context context, List<TeamsItem> items) {
+		this.context = context;
+		this.items = items;
+	}
+
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_view_favourite, parent, false);
 		ViewHolder viewHolder = new ViewHolder(view);
 		return viewHolder;
 	}
 
 
-	@SuppressLint("CheckResult")
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
 
-		TeamsItem item = list.get(position);
+		TeamsItem item = items.get(position);
 
-		holder.teamName.setText(item.getName());
-		holder.theirVenue.setText(item.getVenue());
-		holder.teamPlayers.setText(item.getShortName());
-		holder.nameColors.setText(item.getClubColors());
-		holder.teamWebsite.setText(item.getWebsite());
+		holder.teamName_Favourite.setText(item.getName());
+		holder.theirVenue_Favourite.setText(item.getVenue());
+		holder.teamPlayers_Favourite.setText(item.getShortName());
+		holder.nameColors_Favourite.setText(item.getClubColors());
+		holder.teamWebsite_Favourite.setText(item.getWebsite());
 
 		//Image
 		RequestOptions requestOptions = new RequestOptions();
@@ -89,29 +86,27 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 					}
 				})
  				.transition(DrawableTransitionOptions.withCrossFade())
-				.into(holder.img_Color);
+				.into(holder.img_Color_Favourite);
 
 
-		holder.itemView.setOnClickListener(v -> {
-			if (onItemClickListener != null) {
-				onItemClickListener.onItemClick(position, item);
-			}
-		});
+		if (onItemClickListener != null) {
+			holder.itemView.setOnClickListener(v -> {
 
-		holder.saveBtn.setOnClickListener(v -> {
-			if (onItemClickListener != null) {
-				onItemClickListener.onItemClickFavourite(position, item);
-			}
+				onItemClickListener.onItemClick(position);
+			});
+		}
 
-		});
 
 	}
-
+	public void changeDataShow(List<TeamsItem> lists) {
+		this.items = lists;
+		notifyDataSetChanged();
+	}
 
 	@Override
 	public int getItemCount() {
 		//return iterator
-		return list == null ? 0 : list.size();
+		return items == null ? 0 : items.size();
 
 	}
 
@@ -119,45 +114,33 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 		this.onItemClickListener = onItemClickListener;
 	}
 
-
 	public interface OnItemClickListenerView {
-		void onItemClick(int position, TeamsItem item);
-
-		void onItemClickFavourite(int position, TeamsItem item);
+		void onItemClick(int position);
 	}
 
-	public void changeData(List<TeamsItem> lists) {
-		this.list = lists;
-		notifyDataSetChanged();
-	}
 
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		//ViewHolder
-		TextView teamName, teamWebsite, theirVenue, teamPlayers, nameColors;
-		ImageView img_Color;
+		TextView teamName_Favourite, teamWebsite_Favourite, theirVenue_Favourite, teamPlayers_Favourite, nameColors_Favourite;
+		ImageView img_Color_Favourite;
 
-		Button saveBtn;
 
 		ProgressBar progressBar;
+
 
 		public ViewHolder(View itemView) {
 			super(itemView);
 
-			saveBtn = itemView.findViewById(R.id.saveBtn);
+			teamName_Favourite = itemView.findViewById(R.id.TeamName_favour);
+			teamWebsite_Favourite = itemView.findViewById(R.id.TeamWebsite_favourite);
+			theirVenue_Favourite = itemView.findViewById(R.id.TheirVenue_favourite);
+			teamPlayers_Favourite = itemView.findViewById(R.id.TeamPlayers_favourite);
+			nameColors_Favourite = itemView.findViewById(R.id.Colors_favourite);
 
-			teamName = itemView.findViewById(R.id.TeamName);
-			teamWebsite = itemView.findViewById(R.id.TeamWebsite);
-			theirVenue = itemView.findViewById(R.id.TheirVenue);
-			teamPlayers = itemView.findViewById(R.id.TeamPlayers);
-			nameColors = itemView.findViewById(R.id.Colors);
+			img_Color_Favourite = itemView.findViewById(R.id.img_Color_favourite);
 
-			img_Color = itemView.findViewById(R.id.img_Color);
-
-			progressBar = itemView.findViewById(R.id.prograss_load_photo);
-
+			progressBar = itemView.findViewById(R.id.prograss_load_photo_F);
 
 		}
 	}
-
-
 }

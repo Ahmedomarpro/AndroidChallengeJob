@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidChallengeJob</string>
+    <string name="favourite">View Favourite</string>
 </resources>
