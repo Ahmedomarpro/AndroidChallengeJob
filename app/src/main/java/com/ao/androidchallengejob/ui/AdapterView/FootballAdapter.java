@@ -1,9 +1,7 @@
-package com.ao.androidchallengejob.ui;
+package com.ao.androidchallengejob.ui.AdapterView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +27,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.List;
-import java.util.Random;
 
 public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHolder> {
 
@@ -55,7 +51,7 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 	}
 
 
- 	@SuppressLint("CheckResult")
+	@SuppressLint("CheckResult")
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
 
@@ -66,13 +62,6 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 		holder.teamPlayers.setText(item.getShortName());
 		holder.nameColors.setText(item.getClubColors());
 		holder.teamWebsite.setText(item.getWebsite());
-
-		/*holder.saveBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(context, ""+item, Toast.LENGTH_SHORT).show();
-			}
-		});*/
 
 		//Image
 		RequestOptions requestOptions = new RequestOptions();
@@ -94,7 +83,7 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 					}
 
 					@Override
-					public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource 						dataSource, boolean isFirstResource) {
+					public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
 						holder.progressBar.setVisibility(View.GONE);
 						return false;
 					}
@@ -105,11 +94,18 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 				.into(holder.img_Color);
 
 
-				holder.itemView.setOnClickListener(v->{
-					if (onItemClickListener != null){
-						onItemClickListener.onItemClick(position,item);
-					}
-				});
+		holder.itemView.setOnClickListener(v -> {
+			if (onItemClickListener != null) {
+				onItemClickListener.onItemClick(position, item);
+			}
+		});
+
+		holder.saveBtn.setOnClickListener(v -> {
+			if (onItemClickListener != null) {
+				onItemClickListener.onItemClickFavourite(position, item);
+			}
+
+		});
 
 	}
 
@@ -125,18 +121,21 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 		this.onItemClickListener = onItemClickListener;
 	}
 
+
 	public interface OnItemClickListenerView {
 		void onItemClick(int position, TeamsItem item);
+
+		void onItemClickFavourite(int position, TeamsItem item);
 	}
 
-	public void changeData(List<TeamsItem>lists){
-		this.list=lists;
+	public void changeData(List<TeamsItem> lists) {
+		this.list = lists;
 		notifyDataSetChanged();
 	}
 
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		//ViewHolder
-		TextView teamName, teamWebsite, theirVenue, teamPlayers,nameColors;
+		TextView teamName, teamWebsite, theirVenue, teamPlayers, nameColors;
 		ImageView img_Color;
 
 		Button saveBtn;
@@ -146,7 +145,7 @@ public class FootballAdapter extends RecyclerView.Adapter<FootballAdapter.ViewHo
 		public ViewHolder(View itemView) {
 			super(itemView);
 
-			saveBtn =itemView.findViewById(R.id.saveBtn);
+			saveBtn = itemView.findViewById(R.id.saveBtn);
 
 			teamName = itemView.findViewById(R.id.TeamName);
 			teamWebsite = itemView.findViewById(R.id.TeamWebsite);

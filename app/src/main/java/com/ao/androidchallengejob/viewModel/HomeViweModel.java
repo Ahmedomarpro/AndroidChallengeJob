@@ -19,15 +19,15 @@ public class HomeViweModel extends ViewModel {
 
 	public static final String key = "d2f43d9ec9f34ed694dee62ad699e242";
 
-	public MutableLiveData <List<TeamsItem>> teamsItem = new MutableLiveData<>();
+	public MutableLiveData<List<TeamsItem>> teamsItem = new MutableLiveData<>();
 	MutableLiveData<String> message = new MutableLiveData<>();
 
 
-	public void getFootballData(){
+	public void getFootballData() {
 		FootballDataClint.getServiceApi().repositoryDataCall(key).enqueue(new Callback<RepositoryData>() {
 			@Override
 			public void onResponse(Call<RepositoryData> call, Response<RepositoryData> response) {
-				if (response.body() != null && response.isSuccessful()){
+				if (response.body() != null && response.isSuccessful()) {
 					teamsItem.setValue(response.body().getTeams());
 				}
 			}
@@ -37,8 +37,6 @@ public class HomeViweModel extends ViewModel {
 
 			}
 		});
-
-
 
 
 	}
