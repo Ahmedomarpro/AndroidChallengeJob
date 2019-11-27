@@ -19,8 +19,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".ui.addFavourite"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".ui.favourite.ShowFavourite"
+            android:parentActivityName=".ui.MainActivity">
 
         </activity>
         <activity

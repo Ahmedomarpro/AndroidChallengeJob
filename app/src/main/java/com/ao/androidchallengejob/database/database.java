@@ -18,6 +18,10 @@ public interface  database {
 	@Query("select * from teamsitem")
 	  List<TeamsItem> getAllitem();
 
+/*
 
+	@Query("SELECT EXISTS (SELECT 1 FROM teamsitem WHERE id=:id)")
+	public int isFavorite(int id);
+*/
 
 }
