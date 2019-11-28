@@ -17,7 +17,9 @@ However if you need more competitions (or in-depth data), we have several paid p
 The exhaustive documentation, code samples and libraries will help you get up and running quickly. 
 
 ## Screenshot
-<img src="https://github.com/Ahmed3Elshaer/GeoSquar/blob/master/art/1.png" width="200" height="400"></a>
+
+ ![Screenshot_Acivity](https://user-images.githubusercontent.com/22521791/69773224-e8683280-119a-11ea-8265-84b25a39ff78.png)
+
 
 ## Specifications
 - Caching for showing the last places offline.
