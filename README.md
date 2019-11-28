@@ -17,10 +17,8 @@ However if you need more competitions (or in-depth data), we have several paid p
 The exhaustive documentation, code samples and libraries will help you get up and running quickly. 
 
 ## Screenshot
-
- ![Screenshot_Acivity](https://user-images.githubusercontent.com/22521791/69773224-e8683280-119a-11ea-8265-84b25a39ff78.png)
-
-
+<img src="https://user-images.githubusercontent.com/22521791/69773224-e8683280-119a-11ea-8265-84b25a39ff78.png" width="200" height="400"></a>
+ 
 ## Specifications
 - Caching for showing the last places offline.
 - portrait and landscape.
@@ -93,13 +91,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE...
 
 ```
-
   
-
-
-
- 
-
-
-
-
